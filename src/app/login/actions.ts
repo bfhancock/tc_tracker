@@ -41,13 +41,23 @@ export async function signup(formData: FormData) {
   redirect("/");
 }
 
+function getSiteUrl() {
+  // When deployed on Vercel, VERCEL_URL is set automatically (no protocol)
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  // Fallback to localhost in dev
+  return "http://localhost:3000";
+}
+
 export async function signInWithDiscord() {
   const supabase = await createClient();
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "discord",
     options: {
-      redirectTo: "https://raxhaiesratrsplylcar.supabase.co/auth/v1/callback",
+      redirectTo: `${getSiteUrl()}/auth/callback`,
     },
   });
 
