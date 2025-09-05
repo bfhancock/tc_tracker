@@ -4,7 +4,13 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 
-const User = ({ user, signOut }) => {
+const User = ({
+  user,
+  signOut,
+}: {
+  user: { avatar_url: string };
+  signOut: () => void;
+}) => {
   const [open, setOpen] = useState(false);
   const [hoverLogout, setHoverLogout] = useState(false);
   const [hoverSettings, setHoverSettings] = useState(false);
