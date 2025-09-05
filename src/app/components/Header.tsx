@@ -18,6 +18,9 @@ const Header = () => {
         data: { user },
       } = await supabase.auth.getUser();
       setUser(user);
+      if (user === null) {
+        redirect("/login");
+      }
     };
     getUser();
   }, [supabase]);
@@ -29,9 +32,9 @@ const Header = () => {
   };
 
   return (
-    <header className="grid grid-cols-3 w-[90%] min-h-[50px] xl:w-full max-w-6xl items-center justify-center sm:py-2.5 px-6 gap-5 rounded-b-[15px] bg-[#FDF0D5] fixed top-0 left-1/2 translate-x-[-50%] shadow">
-      <div></div>
-      <div className="flex justify-center">
+    <header className="grid grid-cols-2 sm:grid-cols-3 w-[90%] min-h-[50px] xl:w-full max-w-6xl items-center justify-center py-[5px] sm:py-2.5 px-6 gap-5 rounded-b-[15px] bg-[#FDF0D5] fixed top-0 left-1/2 translate-x-[-50%] shadow">
+      <div className="hidden sm:block"></div>
+      <div className="flex justify-start sm:justify-center">
         <Image src={logo} alt="TC Tracker Logo" height={50} priority />
       </div>
       <div className="flex justify-end gap-2.5">

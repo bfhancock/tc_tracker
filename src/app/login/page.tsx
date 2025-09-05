@@ -6,7 +6,7 @@ const LoginPage = () => {
     <div className="mt-[250px]">
       <button
         className="rounded-full border-2 border-r-[3px] border-red bg-papaya px-4 py-2 cursor-pointer flex items-center gap-2.5 text-blue_dark shadow-red 
-        hover:shadow-lg hover:-translate-y-0.5 transition-all duration-400 ease-in-out"
+        hover:shadow-lg hover:-translate-y-0.5 transition-all duration-400 ease-in-out active:translate-y-[1px] active:shadow-none"
         onClick={signInWithDiscord}
       >
         <p className="text-xl font-medium">Authenticate with Discord</p>
