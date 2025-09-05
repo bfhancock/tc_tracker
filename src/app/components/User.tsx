@@ -17,11 +17,15 @@ const User = ({
 
   return (
     <div className="relative size-[45px]">
-      <div className="absolute w-[100px] h-[40px] bg-papaya z-20 -top-4 left-1/2 -translate-x-[55%]" />
+      <div className="absolute w-[50px] h-[40px] bg-papaya z-20 -top-4 left-1/2 -translate-x-1/2" />
       <div
         className="relative size-[45px]"
         onMouseOver={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
+        onMouseLeave={() => {
+          setHoverLogout(false);
+          setHoverSettings(false);
+          setOpen(false);
+        }}
       >
         <button className="size-[45px] rounded-full border-2 border-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer">
           <Image
@@ -39,10 +43,10 @@ const User = ({
           {open && (
             <motion.div
               initial={{ y: -25 }}
-              animate={{ y: 90 }}
+              animate={{ y: 105 }}
               exit={{ y: -25 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="w-[45px] h-[115px] absolute bottom-0 left-1/2 -translate-x-1/2 bg-black/75 z-0 rounded-b-full flex flex-col items-center justify-end pb-1.5 gap-2"
+              className="w-[45px] h-[130px] absolute bottom-0 left-1/2 -translate-x-1/2 bg-black/75 z-0 rounded-b-full flex flex-col items-center justify-end pb-1.5 gap-2"
             >
               <button
                 onMouseOver={() => setHoverSettings(true)}
@@ -75,13 +79,13 @@ const User = ({
                   ></path>
                 </svg>
                 <AnimatePresence>
-                  {hoverSettings && (
+                  {hoverSettings && open && (
                     <motion.p
-                      initial={{ x: -50, y: 10, opacity: 0 }}
+                      initial={{ x: -60, y: 10, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
-                      exit={{ x: -50, y: -10, opacity: 0 }}
+                      exit={{ x: -60, y: -10, opacity: 0 }}
                       transition={{ duration: 0.15, ease: "easeOut" }}
-                      className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-xs text-white z-0 font-medium"
+                      className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-xs text-white z-0 font-medium bg-black/50 px-2 py-0.5 rounded-full"
                     >
                       Settings
                     </motion.p>
@@ -119,13 +123,13 @@ const User = ({
                   ></path>
                 </svg>
                 <AnimatePresence>
-                  {hoverLogout && (
+                  {hoverLogout && open && (
                     <motion.p
-                      initial={{ x: -50, y: 10, opacity: 0 }}
+                      initial={{ x: -60, y: 10, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
-                      exit={{ x: -50, y: -10, opacity: 0 }}
+                      exit={{ x: -60, y: -10, opacity: 0 }}
                       transition={{ duration: 0.15, ease: "easeOut" }}
-                      className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-xs text-white z-0 font-medium"
+                      className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-xs text-white z-0 font-medium bg-black/50 px-2 py-0.5 rounded-full"
                     >
                       Logout
                     </motion.p>

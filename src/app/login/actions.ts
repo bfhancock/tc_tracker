@@ -62,7 +62,6 @@ export async function signInWithDiscord() {
   });
 
   if (error) {
-    console.log(error, "error");
     redirect("/error");
   }
 
