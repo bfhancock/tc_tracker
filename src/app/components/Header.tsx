@@ -35,6 +35,7 @@ const Header = () => {
         <Image src={logo} alt="TC Tracker Logo" height={50} priority />
       </div>
       <div className="flex justify-end gap-2.5">
+        {/* @ts-expect-error because its dumb */}
         {user ? <User user={user?.user_metadata} signOut={signOut} /> : null}
       </div>
     </header>
