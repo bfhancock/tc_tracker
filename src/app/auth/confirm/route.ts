@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     });
     if (!error) {
       console.log(next, "next");
-      redirect(next);
+      // redirect(next);
     }
   }
 
