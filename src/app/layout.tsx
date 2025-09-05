@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${commissioner.className} antialiased bg-blue_dark flex flex-col items-center`}
+        className={`${commissioner.className} antialiased bg-papaya flex flex-col items-center`}
       >
         <Header />
         {children}
